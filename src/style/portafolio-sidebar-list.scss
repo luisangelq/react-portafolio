@@ -1,9 +1,43 @@
 .portafolio-sidebar-wrapper {
     .portafolio-item-thumb{
         padding: 21px;
+        
 
         .portafolio-thumb-img img{
             width: 100%;
+        }
+
+        .text-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5%;
+            height: 20px;
+            
+
+            .title {
+                color: $offwhite;
+                font-size: 1.5em;
+            }
+            
+            .actions {
+                display: flex;
+                .action-icon {
+                    cursor: pointer;
+                    color: $offwhite;
+                    font-size: x-large;
+                    transition: 0.5s ease-in-out;
+                    margin-right: 20px;
+                    height: 30px;
+                    width: 30px;
+    
+                    &:hover {
+                        color: $warning;
+                        font-size: xx-large;
+                    }
+                }
+            }
+            
         }
     }
 }

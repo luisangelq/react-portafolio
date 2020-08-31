@@ -2,6 +2,7 @@
   "name": "react-redux-router",
   "version": "1.0.0",
   "description": "Basic skeleton codebase for React/Redux/Router applications.",
+  "proxy": "http://localhost:8080",
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
@@ -33,6 +34,9 @@
   },
   "homepage": "https://github.com/bottega-code-school/js-builder",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "ajv": "^5.5.2",
     "autoprefixer": "^9.1.0",
     "axios": "^0.18.0",
@@ -65,6 +69,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-dropzone-component": "^3.2.0",
+    "react-modal": "^3.11.2",
     "react-redux": "5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.3.1",

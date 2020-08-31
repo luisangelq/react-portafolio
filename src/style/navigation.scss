@@ -2,9 +2,43 @@
     display: flex;
     justify-content: space-between;
     padding: 30px;
+    
 
     .left-side {
         display: flex;
+        height: 60px;
+    }
+    .right-side {
+        display: flex;
+        align-items: center;
+        .signOut {
+            cursor: pointer;
+            transition: 0.5s ease-in-out;
+            color: $teal;
+            font-size: x-large;
+            margin-left: 25px;
+            width: 30px;
+
+           &:hover {
+            font-size: xx-large;
+            color: $warning;
+           } 
+        }
+
+        .signIn {
+            cursor: pointer;
+            transition: 0.5s ease-in-out;
+            color: $warning;
+            font-size: x-large;
+            margin-left: 25px;
+            width: 30px;
+
+           &:hover {
+            font-size: xx-large;
+            color: $teal;
+           } 
+            
+        }
     }
 
     .nav-link-wrapper {
