@@ -20,21 +20,30 @@ export default class PortafolioContainer extends Component {
   }
 
   handleFilter(filter) {
-    this.setState({
-      data: this.state.data.filter((item) => {
-        return item.category === filter;
-      }),
-    });
+    if(filter === "CLEAR_FILTERS") {
+      this.getPortafolioItems();
+    }else {
+      this.getPortafolioItems(filter);
+    }
+    
   }
 
-  getPortafolioItems() {
+  getPortafolioItems(filter = null) {
     axios
       .get("https://luisangel.devcamp.space/portfolio/portfolio_items")
       .then((response) => {
-        // handle success
-        this.setState({
-          data: response.data.portfolio_items,
-        });
+        if(filter){
+          this.setState({
+            data: response.data.portfolio_items.filter(item => {
+              return item.category === filter;
+            })
+          });
+        } else {
+          this.setState({
+            data: response.data.portfolio_items,
+          });
+        }
+        
       })
       .catch((error) => {
         // handle error
@@ -49,22 +58,34 @@ export default class PortafolioContainer extends Component {
     });
   }
 
-  
-
   render() {
     if (this.state.isLoading) {
       return <div>Loading...</div>;
     }
 
     return (
-      <div className="portafolio-items-wrapper">
-        <button className="btn" onClick={() => this.handleFilter("Technology")}>
-          Technology
-        </button>
-        <button className="btn" onClick={() => this.handleFilter("Health")}>Health</button>
-        <button className="btn" onClick={() => this.handleFilter("shop")}>shop</button>
-
-        {this.portafolioItems()}
+      <div className="homapage-wrapper">
+        <div className="filter-links">
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Technology")}
+          >
+            Technology
+          </button>
+          <button className="btn" onClick={() => this.handleFilter("Health")}>
+            Health
+          </button>
+          <button className="btn" onClick={() => this.handleFilter("shop")}>
+            shop
+          </button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("CLEAR_FILTERS")}
+          >
+            All
+          </button>
+        </div>
+        <div className="portafolio-items-wrapper">{this.portafolioItems()}</div>
       </div>
     );
   }

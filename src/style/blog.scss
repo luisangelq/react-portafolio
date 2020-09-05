@@ -4,6 +4,23 @@
     align-items: center;
     position: relative;
 
+    .admin-blog-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon-trash a{
+            margin-left: 1.5em;
+            font-size: 1.5em;
+            transition: 0.3s ease-in-out;
+            cursor: pointer;
+            
+            &:hover {
+                color: $warning;
+            }
+        }
+    }
+
     .new-blog-link{
         position: fixed;
         right: 5em;
@@ -46,6 +63,7 @@
             text-align: justify !important;
         }
         .title-center {
+            cursor: pointer;
             text-align: center;
         }
 
